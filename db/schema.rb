@@ -14,28 +14,29 @@ ActiveRecord::Schema.define(version: 20161118151148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "products", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.string   "articul",    null: false
-    t.decimal  "price",      null: false
-    t.decimal  "sale"
-    t.integer  "updated_by"
+    t.string "title", null: false
+    t.string "articul", null: false
+    t.decimal "price", null: false
+    t.decimal "sale"
+    t.integer "updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "crypted_password"
-    t.string   "salt"
-    t.string   "email",                        null: false
-    t.string   "first_name",                   null: false
-    t.string   "last_name",                    null: false
-    t.integer  "role",             default: 0
-    t.integer  "age"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.string "crypted_password"
+    t.string "salt"
+    t.string "email", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.integer "role", default: 0
+    t.integer "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end
