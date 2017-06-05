@@ -1,5 +1,6 @@
 class Seed
   def create_all
+    clean_up!
     create_users
     create_products
     puts 'Seeding complete'
@@ -38,6 +39,10 @@ class Seed
   end
 
   private
+
+  def clean_up!
+    [User, Product].each(&:destroy_all)
+  end
 
   def create_demo_user
     User.create(
