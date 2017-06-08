@@ -1,4 +1,9 @@
 class Product < ApplicationRecord
+  enum status: {
+    active: 0,
+    archived: 10
+  }
+
   scope :updated_by_employee, -> do
     joins(
       <<~SQL
