@@ -15,6 +15,7 @@ gem "haml", "~> 5.0"
 gem "pg"
 gem "sorcery"
 gem "faker"
+gem "cancancan", "~> 2.0"
 
 group :development, :test do
   gem "pry-rails"

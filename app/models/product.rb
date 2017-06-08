@@ -21,4 +21,8 @@ class Product < ApplicationRecord
   scope :updated_by_employee_last_week, -> do
     updated_by_employee.updated_during_last_week.order(:updated_at)
   end
+
+  def name
+    "#{title.titleize} ##{articul.upcase}"
+  end
 end

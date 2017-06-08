@@ -1,0 +1,10 @@
+.products {
+  .archived {
+    background-color: silver;
+  }
+  .active .sale {
+    color: grey;
+    text-decoration: line-through;
+    font-size: 0.8rem;
+  }
+}

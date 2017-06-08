@@ -1,0 +1,14 @@
+- if can? :read, product
+  %tr{:class => "product #{product.status}"}
+    %td= product.name
+    %td= price_with_sale(product)
+    %td
+      - unless product.sale.zero?
+        Sale
+    %td
+      - if can? :update, Product
+        = link_to "Edit", "#"
+      - if can? :archive, Product
+        = link_to("Archive", archive_product_path(product), method: :post)
+    - if can? :manage, Product
+      %td= modifier_link(product)

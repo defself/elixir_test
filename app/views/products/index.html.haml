@@ -1,0 +1,18 @@
+%h1 Products
+
+.products
+  - if can? :manage, Product
+    %ul
+      %li= link_to "All products (A-Z)", root_path
+      %li= link_to "Show products updated by employees last week", root_path(updated_by_employee_last_week: true)
+
+  %table
+    %tr
+      %th Name
+      %th Price
+      %th With Sale
+      - if current_user
+        %th Actions
+      - if can? :manage, Product
+        %th Updated By
+    = render @products
